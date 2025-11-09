@@ -2,6 +2,8 @@
 
 > 编者注：E大在 2010 年、2015 年以及 2017 年写过三次关于长赢计划答疑。本文将三次答疑整理汇总成一篇，方便大家查看。点击文末链接可查看E大原文。
 
+编者注：E大在 2010 年、2015 年以及 2017 年写过三次关于长赢计划答疑。本文将三次答疑整理汇总成一篇，方便大家查看。点击文末链接可查看E大原文。
+
 
 ## 一、收益与预期
 
@@ -92,6 +94,8 @@ ETF 计划总体来讲，经过这十几年的实践，如果让我换到一个�
 
 这个计划，不是为大家制定的理财计划，只是我实践自己投资理念的一个成果。我放到外面，大家可以看看，觉得好就参考参考。用自己的一部分钱做一做也可以。但大家还是要有其它的投资，自己买股票也好、别的投资也好，都一起做做。这是一个可选项，不是唯一的方式。
 
-原文发表于公众号：《[2010 年和 2015 年 QA](https://mp.weixin.qq.com/s/nUMNI_UokdVEaCpXb_t-Xg)》和《[ETF 计划 Q&A（2017 版）](https://mp.weixin.qq.com/s/p4c7vb7i3Z0yPFvZkZc9CA)》
 
-本文章所载信息仅供参考，不构成任何投资建议。如转载使用，请参考 [《文章转载声明》](https://youzhiyouxing.cn/agreements/ARTICLE_REPRINTED)。
+> 原文发表于公众号：《[2010 年和 2015 年 QA](https://mp.weixin.qq.com/s/nUMNI_UokdVEaCpXb_t-Xg)》和《[ETF 计划 Q&A（2017 版）](https://mp.weixin.qq.com/s/p4c7vb7i3Z0yPFvZkZc9CA)》
+
+
+> 本文章所载信息仅供参考，不构成任何投资建议。如转载使用，请参考 [《文章转载声明》](https://youzhiyouxing.cn/agreements/ARTICLE_REPRINTED)。
