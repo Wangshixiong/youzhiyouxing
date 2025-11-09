@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-platform-type="other" data-browser-type="browser" data-cdn-base-url="https://cdn.youzhiyouxing.cn/static" class="tw-min-h-full">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://youzhiyouxing.cn/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://youzhiyouxing.cn/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+    <script>
+!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):(t=t||self).assetsRetry=e()}(this,function(){"use strict";function u(t){return t}function h(){}function t(t){for(var e=Object.getPrototypeOf?Object.getPrototypeOf:function(t){return t.__proto__},r=Object.keys(t);e(t);)r=r.concat(Object.keys(e(t))),t=e(t);return r.filter(function(t){return"constructor"!==t})}function n(t,e){try{return"function"==typeof t[e]}catch(t){return!1}}function f(t){return Array.isArray(t)?t.reduce(function(t,e,r,n){return t[e]=n[(r+1)%n.length],t},{}):t}function y(e,t){return Object.keys(t).filter(function(t){return-1<e.indexOf(t)}).sort(function(t,e){return e.length-t.length})[0]}var e,r,o,g="retryTimes",l="succeeded",b="failed",m="maxRetryCount",E="onRetry",d="onSuccess",O="onFail",j="domain",i="_assetsRetryProxy",p="_assetsRetryOnerror",s="script",c="link",w="data-assets-retry-hooked",A="data-assets-retry-ignore",k="data-retry-id",v=window,R=window.document,a=v.HTMLElement,S=v.HTMLScriptElement,L=v.HTMLStyleElement,T=v.HTMLLinkElement,x=v.HTMLImageElement,_=Object.prototype.hasOwnProperty,M=function(t,e,r){var n=t.indexOf(e);return-1===n?t:t.substring(0,n)+r+t.substring(n+e.length)},N=function(t){return[].slice.call(t)},H=function(e,t,r,n){void 0===r&&(r=h),void 0===n&&(n=!1);var o,i,c,a,u,f=n||e.defer||e.async;"loading"!==R.readyState||/Edge|MSIE|rv:/i.test(navigator.userAgent)||f?(o=R.createElement(s),Object.keys(S.prototype).forEach(function(t){if("src"!==t&&e[t]&&"object"!=typeof e[t])try{o[t]=e[t]}catch(t){}}),o.src=t,o.onload=e.onload,o.onerror=e.onerror,o.setAttribute(k,B()),(i=e.getAttribute("nonce"))&&o.setAttribute("nonce",i),R.getElementsByTagName("head")[0].appendChild(o)):(c=B(),a=e.outerHTML.replace(/data-retry-id="[^"]+"/,"").replace(/src=(?:"[^"]+"|.+)([ >])/,k+"="+c+' src="'+t+'"$1'),R.write(a),(u=R.querySelector("script["+k+'="'+c+'"]'))&&(u.onload=r))},P=function(e){try{return e.rules}catch(t){try{return e.cssRules}catch(t){return null}}},I=function(e,t,r){var n=R.createElement(c);Object.keys(T.prototype).forEach(function(t){if("href"!==t&&e[t]&&"object"!=typeof e[t])try{n[t]=e[t]}catch(t){}}),n.href=t,n.onload=r||e.onload,n.onerror=e.onerror,n.setAttribute(k,B()),R.getElementsByTagName("head")[0].appendChild(n)},C=function(t){return t?t instanceof a?[t.nodeName,t.src,t.href,t.getAttribute(k)].join(";"):"not_supported":"null"},B=function(){return Math.random().toString(36).slice(2)},q=function(t){return t instanceof S||t instanceof x?t.src:t instanceof T?t.href:""},z={},F=function(t,e){var r,n=Z(t,e),o=n[0],i=n[1];return o?(z[o]=z[o]||((r={})[g]=0,r[b]=[],r[l]=[],r),[i,z[o]]):[]},Z=function(t,e){var r,n,o=y(t,e);return o?[(n=o,(r=t).substr(r.indexOf(n)+n.length,r.length)),o]:["",""]};try{r=function(){for(var t=0,e=0,r=arguments.length;e<r;e++)t+=arguments[e].length;for(var n=Array(t),o=0,e=0;e<r;e++)for(var i=arguments[e],c=0,a=i.length;c<a;c++,o++)n[o]=i[c];return n}(t(S.prototype),t(T.prototype)),o={},r.forEach(function(t){o[t]=!0}),e=Object.keys(o)}catch(t){}function $(s,t){var l=t[m],d=f(t[j]),y=t[E];return e.reduce(function(t,r){var e=n(S.prototype,r);return t[r]=e?{value:function(){return s[i][r].apply(s[i],arguments)}}:{set:function(e){var f=s[i];return"onerror"===r?(s[p]=e,void(f.onerror=function(n){if("string"!=typeof n){n.stopPropagation&&n.stopPropagation();var t=function(){return t=s[p],e=f,r=n,"function"!=typeof t?null:t.call(e,r);var t,e,r},e=q(f),r=F(e,d),o=r[0],i=r[1],c=f.hasAttribute(A);if(!o||!i||c)return t();var a=M(e,o,d[o]),u=y(a,e,i);if(null===u)return t();if("string"!=typeof u)throw new Error("a string should be returned in `onRetry` function");i[g]<=l?f instanceof S?H(f,u,h,!0):f instanceof T&&I(f,u):t()}})):"onload"===r?(s._assetsRetryOnload=e,void(s[i].onload=function(t){e&&!e._called&&(e._called=!0,e.call(s[i],t))})):void(f[r]=e)},get:function(){return s[i][r]}},t},{})}var D=function(r){var n=R.createElement;R.createElement=function(t,e){return t===s||t===c?function(t,e){var r;t.setAttribute(w,"true");var n=((r={})[i]=t,r[p]=h,r),o=$(n,e);return Object.defineProperties(n,o),n.onload=h,n.onerror=h,n}(n.call(R,t),r):n.call(R,t,e)}},G=function(r){Object.keys(r).filter(function(t){return n(r,t)}).forEach(function(t){var e=r[t];r[t]=function(){var t=[].slice.call(arguments).map(function(t){return t&&_.call(t,i)?t[i]:t});return e.apply(this,t)}})};var J={};function K(y){function f(t){if(t){var e=t.target||t.srcElement,r=q(e);if(r){var n=F(r,v),o=n[0],i=n[1],c=e instanceof HTMLElement&&e.hasAttribute(A);if(i&&o&&!c){i[g]++,i[b].push(r);var a,u=i[g]>y[m];if(u&&(a=Z(r,v)[0],p(a)),v[o]&&!u){var f=v[o],s=M(r,o,f),l=h(s,r,i);if(null!==l){if("string"!=typeof l)throw new Error("a string should be returned in `onRetry` function");var d=C(e);J[d]||(J[d]=!0,e instanceof S&&!e.getAttribute(w)&&e.src?H(e,l):e instanceof T&&!e.getAttribute(w)&&e.href?I(e,l):e instanceof x&&e.src&&(e.setAttribute(k,B()),e.src=l))}}}}}}var h=y[E],s=y[d],p=y[O],v=y[j];R.addEventListener("error",f,!0),R.addEventListener("load",function(t){var e,r,n,o,i,c,a,u;t&&(e=t.target||t.srcElement,(r=q(e))&&((n=F(r,v))[0],o=n[1],i=Z(r,v)[0],c=function(){o&&o[l].push(r),s(i)},e instanceof T?R.styleSheets&&(a=N(R.styleSheets).filter(function(t){return t.href===e.href})[0],null!==(u=P(a))&&(0!==u.length?c():f(t))):c()))},!0)}function Q(t,e,r,n,o){var i=o[j],c=o[E],a=e.style&&e.style[t];if(a&&!/^url\(["']?data:/.test(a)){var u=a.match(/^url\(["']?(.+?)["']?\)/)||[],f=u[1];if(f){var s=y(f,i);if(s&&i[s]){var l=Object.keys(i).map(function(t){var e=M(f,s,t);return'url("'+c(e,f,null)+'")'}).join(","),d=e.selectorText+("{ "+t.replace(/([a-z])([A-Z])/g,function(t,e,r){return e+"-"+r.toLowerCase()}))+": "+l+" !important; }";try{r.insertRule(d,n.length)}catch(t){r.insertRule(d,0)}}}}}var U={},V=[],W=function(t,o){var i=["backgroundImage","borderImage","listStyleImage"];t.forEach(function(r){var n,t=P(r);null!==t&&((n=N(t)).forEach(function(e){i.forEach(function(t){Q(t,e,r,n,o)})}),r.href&&(U[r.href]=!0),r.ownerNode instanceof L&&V.push(r.ownerNode))})},X=function(t,r){return N(t).filter(function(t){if(!P(t))return!1;if(t.href)return!U[t.href]&&!!y(t.href,r);var e=t.ownerNode;return!(e instanceof L&&-1<V.indexOf(e))})};return function(t){var e,r,n,o;void 0===t&&(t={});try{if("object"!=typeof t[j])throw new Error("opts.domain cannot be non-object.");var i=[m,E,d,O,j],c=Object.keys(t).filter(function(t){return-1===i.indexOf(t)});if(0<c.length)throw new Error("option name: "+c.join(", ")+" is not valid.");var a=((e={})[m]=t[m]||3,e[E]=t[E]||u,e[d]=t[d]||h,e[O]=t[O]||h,e[j]=f(t[j]),e);return D(a),"undefined"!=typeof Node&&G(Node.prototype),"undefined"!=typeof Element&&G(Element.prototype),K(a),r=a,n=R.styleSheets,o=r[j],n&&setInterval(function(){var t=X(R.styleSheets,o);0<t.length&&W(t,r)},250),z}catch(t){v.console&&console.error("[assetsRetry] error captured",t)}}});
+
+
+</script>
+
+<script>
+(function () {
+var maxRetryCount = 4;
+var maxRequestTimes = 1 + maxRetryCount;
+var originDomain = 'youzhiyouxing.cn';
+var domains = [
+  window.location.host,
+  originDomain,
+  'cdn.youzhiyouxing.cn',
+  'asset.youzhiyouxing.cn',
+];
+
+var assetsRetryStatistics = window.assetsRetry({
+  domain: domains,
+  maxRetryCount: maxRetryCount,
+  onRetry: function(currentUrl, originUrl, statistics) {
+    if (!statistics) {
+      return originUrl;
+    }
+
+    var retryTimes = statistics.retryTimes;
+
+    var cdnPrefix = document.querySelector('html').dataset.cdnBaseUrl;
+    if (retryTimes > maxRequestTimes) {
+      return null;
+    } else if (originUrl.indexOf(cdnPrefix) === 0 && retryTimes > 3) {
+      return originUrl.replace(cdnPrefix, 'https://' + originDomain);
+    } else {
+      return originUrl;
+    }
+  },
+  onSuccess: function(currentUrl) {
+    var statistics = assetsRetryStatistics[currentUrl];
+    if (statistics) {
+      var retryTimes = statistics.retryTimes;
+
+      if (retryTimes > 0) {
+        window.traceEvent && window.traceEvent('dx', 'error', 'offsite_resource_fail', {
+          url: currentUrl,
+          retry_total: retryTimes,
+          final_status: 0,
+        });
+      }
+    }
+  },
+  onFail: function(currentUrl) {
+    var statistics = assetsRetryStatistics[currentUrl];
+    if (statistics) {
+      var retryTimes = statistics.retryTimes;
+
+      if (retryTimes <= maxRequestTimes) {
+        window.traceEvent && window.traceEvent('dx', 'error', 'offsite_resource_fail', {
+          url: currentUrl,
+          retry_total: retryTimes,
+          final_status: 1,
+        });
+      }
+    }
+  }
+})
+
+}())
+</script>
+
+
+    <meta property="trace:endpoint" content="https://trace.youzhiyouxing.cn/_.png">
+<meta property="trace:server-query" content="os=Windows&amp;model=unknown&amp;user_id=-1&amp;device_id=9e11a392-23e0-49fe-b2f0-c3f72735bca5&amp;app_ver=&amp;build_ver=&amp;mfr=unknown&amp;os_ver=10&amp;ua=Mozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F91.0.4472.124%20Safari%2F537.36">
+
+    <script>
+  function removeAccessTokenFromCurrentUrl() {
+      const url = new URL(window.location.href);
+      if (url.searchParams.has('access_token')) {
+          url.searchParams.delete('access_token');
+          history.replaceState({}, '', url);
+      }
+  }
+
+    // 调用函数
+    removeAccessTokenFromCurrentUrl();
+</script>
+
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?15e1dca749685d4cbd33ce1fe53a77ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+    <meta content="aSgZDgoRYWAgABgHfDcmMRkFKWZdMhdH6oLG9uV5NstQMpIVnVYPd_M3" name="csrf-token">
+
+    <meta name="baidu-site-verification" content="code-7SrEF8Kmvi">
+
+    
+
+    
+
+    <title>投资是一场赌博</title>
+    
+<meta name="zx-page-theme-mode" content="light">
+
+    
+
+    
+
+    <script crossorigin src="https://cdn.youzhiyouxing.cn/static/js/ng-critical-bfa9e92d5db4cc67cd40c23f02dc94f9.js?vsn=d">
+    </script>
+    <link crossorigin rel="stylesheet" href="https://cdn.youzhiyouxing.cn/static/css/ng-general-57111b31473e1378228a06dc9f264e4c.css?vsn=d">
+    <script defer crossorigin src="https://cdn.youzhiyouxing.cn/static/js/ng-general-78e4e8b38c0f217a31497909d1d1cab1.js?vsn=d">
+    </script>
+
+    <script>
+      window.yzyxContext.getShareInfo = function() {
+        return {
+          title: '有知有行',
+          desc: '不断提升认知，知行合一',
+          imgUrl: 'https://youzhiyouxing.cn/images/logo-square.png',
+        };
+      };
+    </script>
+
+    
+
+
+    
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXRE7WDVE0">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RXRE7WDVE0');
+  </script>
+
+    
+  <script charset="UTF-8" src="https://cdn.youzhiyouxing.cn/static/js/sensorsdata.min-4c637292ba4d46923ac45243e22e46b5.js?vsn=d">
+  </script>
+
+  <script charset="UTF-8">
+    var sensors = window['sensorsDataAnalytic201505'];
+    sensors.init({
+      server_url: 'https://youzhiyouxing.datasink.sensorsdata.cn/sa?project=production&token=41a69d2d55f9f4e8',
+      heatmap: { scroll_notice_map: 'not_collect', clickmap: 'not_collect' },
+      use_client_time: true,
+      send_type: 'image'
+    });
+
+
+    afterload(() => {
+      sensors.quick('autoTrack', { platform: 'flourish' });
+    });
+  </script>
+
+  </head>
+  <body class="
+      tw-bg-bgd-page
+      tw-min-h-screen tw-flex
+      
+    ">
+    <div class="tw-fixed tw-top-0 tw-z-40 tw-w-full tw-h-17 md:tw-h-12 app:tw-hidden miniprogram:tw-hidden">
+      <header class="tw-h-full tw-shadow-medium tw-hidden browser:tw-block tw-bg-bgd-page tw-text-t-light">
+  <!-- for mobile browser -->
+  <div class="tw-h-full tw-hidden md:tw-block" x-data="{ openMobileMenu: false }" x-init="$watch('openMobileMenu', window.toggleBodyScroll)">
+    <div class="view-container tw-h-full tw-flex tw-justify-between tw-items-center">
+      <img src="https://cdn.youzhiyouxing.cn/static/images/logo-square-727a22ab924433bf624c1e7aa0b05dae.png?vsn=d" class="tw-hidden">
+<a class="tw-block tw-h-8 md:tw-h-6" href="/">
+  <img src="https://cdn.youzhiyouxing.cn/static/images/logo-name-45dc30c2407c3dc079006a2c083b58cb.png?vsn=d" class="tw-block dark:tw-hidden tw-h-full">
+  <img src="https://cdn.youzhiyouxing.cn/static/images/logo-name-dark-fa2be40de68a0c18fdb1825cf48058fb.png?vsn=d" class="tw-hidden dark:tw-block tw-h-full">
+</a>
+
+      <div class="tw-flex tw-items-center tw-space-x-6 md:tw-space-x-3">
+        <a class="btn btn-xs tw-flex" data-event-type="web_click" data-event-category="download" data-event-label="app" href="/download">
+          下载 App
+        </a>
+
+        <button class="btn tw-flex tw-outline-none tw-bg-transparent tw-border-0 tw-text-t-normal" aria-controls="mobile-menu" x-on:click="openMobileMenu = !openMobileMenu" x-bind:aria-expanded="openMobileMenu.toString()">
+          <span class="tw-sr-only">打开移动端导航</span>
+          <svg class="{'tw-h-6 tw-w-6 tw-block', 'tw-hidden': openMobileMenu, 'tw-block': !(openMobileMenu) }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div x-description="移动端导航" x-cloak class="tw-bg-white tw-z-40 tw-h-0 tw-transition-all tw-overflow-hidden" x-bind:class="{ 'tw-h-screen': openMobileMenu, 'tw-h-0': !(openMobileMenu) }">
+      <ul class="tw-p-6 tw-list-none tw-text-center">
+        <li>
+          <a class="tw-block tw-p-4 tw-text-16 tw-text-t-normal tw-font-medium" href="/">
+            首页
+          </a>
+        </li>
+        <li>
+          <a class="tw-block tw-p-4 tw-text-16 tw-text-t-normal tw-font-medium" href="/materials">
+            有知
+          </a>
+        </li>
+        <li>
+          <a class="tw-block tw-p-4 tw-text-16 tw-text-t-normal tw-font-medium" href="/x">
+            有行
+          </a>
+        </li>
+        <li>
+          <a class="tw-block tw-p-4 tw-text-16 tw-text-t-normal tw-font-medium" href="/data">
+            温度计
+          </a>
+        </li>
+        <li>
+          <a class="tw-block tw-p-4 tw-text-16 tw-text-t-normal tw-font-medium" href="/join-us" rel="nofollow">
+            加入我们
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- for desktop browser -->
+  <div class="tw-h-full tw-block md:tw-hidden">
+    <div class="view-container tw-h-full tw-flex tw-justify-between tw-items-center">
+      <img src="https://cdn.youzhiyouxing.cn/static/images/logo-square-727a22ab924433bf624c1e7aa0b05dae.png?vsn=d" class="tw-hidden">
+<a class="tw-block tw-h-8 md:tw-h-6" href="/">
+  <img src="https://cdn.youzhiyouxing.cn/static/images/logo-name-45dc30c2407c3dc079006a2c083b58cb.png?vsn=d" class="tw-block dark:tw-hidden tw-h-full">
+  <img src="https://cdn.youzhiyouxing.cn/static/images/logo-name-dark-fa2be40de68a0c18fdb1825cf48058fb.png?vsn=d" class="tw-hidden dark:tw-block tw-h-full">
+</a>
+
+      <ul class="tw-flex-1 tw-h-full tw-mx-6 tw-flex tw-justify-evenly">
+        <li>
+          <a class="tw-w-full tw-h-full tw-flex
+tw-justify-center tw-items-center
+tw-pt-3 tw-pb-2 tw-px-4
+tw-border-b-[3px]
+tw-border-solid
+tw-text-16
+tw-text-t-normal
+tw-border-primary
+" href="/materials">
+            有知
+          </a>
+        </li>
+        <li>
+          <a class="tw-w-full tw-h-full tw-flex
+tw-justify-center tw-items-center
+tw-pt-3 tw-pb-2 tw-px-4
+tw-border-b-[3px]
+tw-border-solid
+tw-text-16
+tw-text-t-normal
+tw-border-transparent
+" href="/x">
+            有行
+          </a>
+        </li>
+        <li>
+          <a class="tw-w-full tw-h-full tw-flex
+tw-justify-center tw-items-center
+tw-pt-3 tw-pb-2 tw-px-4
+tw-border-b-[3px]
+tw-border-solid
+tw-text-16
+tw-text-t-normal
+tw-border-transparent
+" href="/data">温度计</a>
+        </li>
+      </ul>
+
+      <div class="tw-flex tw-items-center tw-space-x-6 md:tw-space-x-3">
+        <a class="btn btn-md" href="/download" data-event-type="web_click" data-event-category="download" data-event-label="app">
+          下载 App
+        </a>
+
+          <a class="btn btn-md btn-outline" onclick="traceEvent('web_click', 'login', 'page');" href="/user/login">
+            登录 / 注册
+          </a>
+
+      </div>
+    </div>
+  </div>
+</header>
+    </div>
+
+    <div class="
+      tw-relative
+      tw-flex-1
+      tw-max-w-full
+      tw-pt-17 md:tw-pt-12 app:tw-pt-0 miniprogram:tw-pt-0
+    ">
+<p class="alert alert-info" role="alert"></p>
+<p class="alert alert-danger" role="alert"></p>
+<script>
+  window.channelMaterialId = "659";
+
+
+    window.yzyxContext.getShareInfo = function () {
+      return {
+        title: "01 投资是场赌博游戏 | E大干货合集",
+        desc: "当打了 2 把桥牌后，如果还不能发现谁是牌局中的傻瓜，那就是自己了。赶紧离场吧。",
+        imgUrl: "https://asset.youzhiyouxing.cn/image/2021/04/08/01F2QRE08FQ90XJZA4TKFYR1ER.png",
+        label: "material",
+      };
+    };
+
+  function gotoColumn(id) {
+    if (window.yzyxBridge) {
+      window.yzyxBridge.callNative('page.column', { id: id }, () => {});
+    }
+  }
+
+    afterload(function() {
+      document.addEventListener('click', function(e) {
+        var target = e.target
+
+        if (typeof target.className.trim == 'function' && target.className.trim() == 'timestamp') {
+          var timestring = target.dataset.timestamp
+          if (timestring) {
+            var splitedTimestring = timestring.split(":")
+            var minutes = parseInt(splitedTimestring[0])
+            var seconds = parseInt(splitedTimestring[1])
+
+            var secondsWillSeek = minutes * 60 + seconds
+            if (window.yzyxBridge) {
+              // seek for APP
+              window.yzyxBridge.callNative('audio.seek', {
+                audio_id: 1200,
+                seek: secondsWillSeek,
+              }, () => {})
+            } else {
+              // seek for HTML5
+              window.currentPodcastPlayer && window.currentPodcastPlayer.seekTo(secondsWillSeek)
+            }
+          }
+        }
+
+      })
+    })
+
+</script>
+
+<div class="
+    content-container tw-pt-6
+    tw-pb-12
+  " data-material-id="659">
+  <div class="tw-text-[1.6rem] app:tw-text-[1.8rem] tw-text-t-normal tw-leading-normal">
+    <div class="tw-select-none tw-px-8">
+      <ul class="tw-mb-4">
+        
+
+        
+      </ul>
+      <div class="tw-flex tw-items-center tw-justify-between">
+        <h2 class="tw-mb-4
+          tw-text-22 tw-leading-normal tw-font-medium tw-text-justify">
+投资是一场赌博
+        </h2>
+
+        
+      </div>
+
+      <ul class="
+          tw-flex tw-justify-between
+          tw-text-t-muted tw-text-14 tw-leading-normal
+        ">
+        <li>
+          
+          <span class="tw-inline">
+ETF拯救世界 ·
+          </span>
+          
+2021年4月8日
+        </li>
+
+        <div class="tw-flex tw-space-x-6 tw-leading-none">
+          
+          <li class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.75" y="1.75" width="10.5" height="12.5" rx="1.25" stroke="currentColor" stroke-width="1.5"/>
+<rect x="5.16666" y="4.5" width="5.83333" height="1.16667" rx="0.583333" fill="currentColor"/>
+<rect x="5.16666" y="7.41669" width="5.83333" height="1.16667" rx="0.583333" fill="currentColor"/>
+<rect x="5.16666" y="10.3333" width="3.5" height="1.16667" rx="0.583333" fill="currentColor"/>
+</svg>
+            <span>98051</span>
+          </li>
+          <li class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_1419:3022" fill="white">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 2C1.89543 2 1 2.89543 1 4V9V11V14.1315C1 14.9302 1.89014 15.4066 2.5547 14.9635L5.5 13H13C14.1046 13 15 12.1046 15 11V4C15 2.89543 14.1046 2 13 2H3Z"/>
+</mask>
+<path d="M2.5547 14.9635L1.72265 13.7155L1.72265 13.7155L2.5547 14.9635ZM5.5 13V11.5H5.04584L4.66795 11.7519L5.5 13ZM2.5 4C2.5 3.72386 2.72386 3.5 3 3.5V0.5C1.067 0.5 -0.5 2.067 -0.5 4H2.5ZM2.5 9V4H-0.5V9H2.5ZM2.5 11V9H-0.5V11H2.5ZM2.5 14.1315V11H-0.5V14.1315H2.5ZM1.72265 13.7155C2.05493 13.4939 2.5 13.7321 2.5 14.1315H-0.5C-0.5 16.1282 1.72536 17.3192 3.38675 16.2116L1.72265 13.7155ZM4.66795 11.7519L1.72265 13.7155L3.38675 16.2116L6.33205 14.2481L4.66795 11.7519ZM13 11.5H5.5V14.5H13V11.5ZM13.5 11C13.5 11.2761 13.2761 11.5 13 11.5V14.5C14.933 14.5 16.5 12.933 16.5 11H13.5ZM13.5 4V11H16.5V4H13.5ZM13 3.5C13.2761 3.5 13.5 3.72386 13.5 4H16.5C16.5 2.067 14.933 0.5 13 0.5V3.5ZM3 3.5H13V0.5H3V3.5Z" fill="#BFBFBF" mask="url(#path-1-inside-1_1419:3022)"/>
+</svg>
+            <span>403</span>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+    <div class="markdown-container app-img-container">
+  <div class="tw-px-8 tw-pt-8" id="zx-material-marker-root" data-platform-type="other" data-material-id="659" data-material-title="01 投资是场赌博游戏 | E大干货合集" data-material-qr-code-url="https://youzhiyouxing.cn/materials/659/share_qr_code" data-marks="[]" data-hot-marks="[{&quot;start&quot;:2229,&quot;end&quot;:2257,&quot;mark_count&quot;:1874},{&quot;start&quot;:1254,&quot;end&quot;:1312,&quot;mark_count&quot;:1223},{&quot;start&quot;:559,&quot;end&quot;:613,&quot;mark_count&quot;:1216},{&quot;start&quot;:1369,&quot;end&quot;:1451,&quot;mark_count&quot;:909},{&quot;start&quot;:432,&quot;end&quot;:467,&quot;mark_count&quot;:736}]" data-show-hot-marks="true">
+<html><head></head><body><h2>一、投资是可以通过努力，取得大概率胜利的赌博游戏（2016-02-24）</h2><p>投资这件事，本质上是个赌博行为。</p><p><em>它比大部分赌博，比如老虎机，更吸引人的地方在于：它是一种可以计算概率，并通过计算结果大幅提高自己赚钱可能性的一种赌博。</em></p><p><span data-term-id="14" data-term-content="价值投资是一种投资流派，价值投资者会对市场价格低于内在价值的资产进行投资。沃伦·巴菲特是该流派的代表人物之一。">价值投资</span>是什么？<span data-term-id="14" data-term-content="价值投资是一种投资流派，价值投资者会对市场价格低于内在价值的资产进行投资。沃伦·巴菲特是该流派的代表人物之一。" disabled="">价值投资</span>无非就是希望找到一家好企业，有好的管理人，生产好的产品。<span data-term-id="14" data-term-content="价值投资是一种投资流派，价值投资者会对市场价格低于内在价值的资产进行投资。沃伦·巴菲特是该流派的代表人物之一。" disabled="">价值投资</span>者会赌它继续好下去——毕竟如果你小学中学都是个学霸，那么高考的时候总会比学渣取得好成绩的概率大一点。当然，也可以是虽然学习一般，但大家对它预期过低，简直比学渣还渣的预期。这种时候买它也算是<span data-term-id="14" data-term-content="价值投资是一种投资流派，价值投资者会对市场价格低于内在价值的资产进行投资。沃伦·巴菲特是该流派的代表人物之一。" disabled="">价值投资</span>。</p><p><span data-term-id="67" data-term-content="趋势投资是一种投资流派。它与价值投资的理念相反：价值投资是只要价值不变，越跌越买，越涨就越要小心；而趋势投资的核心理念是，市场有延续之前价格趋势的动力，所以我们要顺势而为。">趋势投资</span>也一样。用这种方法的人，是在赌趋势会持续。他们会研究各种图形，找出最有可能延续趋势的那种（可能性）。</p><p><span data-term-id="68" data-term-content="量化投资，指的是通过数学模型来预测市场并完成自动化交易的投资方式。">量化投资</span>也是如此。通过设定各种条件，找出一堆合乎标准的标的，做个组合。赌的是组合中大部分标的会继续满足好条件。</p><p>无风险套利、低风险套利更是如此。要精确地计算赢的概率，然后通过不同久期，不同空间的产品进行大概率赚钱的买卖。</p><p>总而言之一句话，<em>不管你用什么方法做投资，都是一个可以通过努力取得大概率胜利的赌博游戏。</em></p><p>乐趣无穷。</p><p>然而，要注意，无论哪种投资方式，都不会出现所谓「100% 胜利」这种事情。我们可以通过各种方法提高胜利的概率，但几乎不可能做到必胜。</p><p>这就要求我们，始终要遵守一个理念：</p><p><em>第一，做大概率会胜利的投资；</em></p><p><em>第二，在错误的时候，尽量将损失最小化；</em></p><p><em>第三，在正确的时候，尽量将利润最大化。</em></p><p>回到我们利用<span data-term-id="33" data-term-content="估值，是计算某一投资标的物折现价值的过程。">估值</span>投资<span data-term-id="73" data-term-content="指数基金，指的是以特定指数（如，沪深300指数、标普500指数、纳斯达克100指数等）为标的指数，并以该指数的成份股为投资对象，通过购买该指数的全部或部分成份股构建投资组合，以追踪标的指数表现的基金产品。特点是，费用低廉、受人为影响较小、业绩透明度较高。">指数基金</span>这件事。理性的做法就是：随着<span data-term-id="33" data-term-content="估值，是计算某一投资标的物折现价值的过程。" disabled="">估值</span>越来越低，投入的资本越来越大，尽量将成本做到最低，但不奢望所有本金全部买在最低位。</p><p>计算胜率，分配资源，等待收获。</p><p>说白了，就是这么简单。</p><p class="copyright">原文发表于雪球：《<a href="https://xueqiu.com/4776750571/65164605">投资是可以通过努力，取得大概率胜利的赌博游戏</a>》</p><h2>二、我把所有的投资都看成赌博（2020-09-16）</h2><p>有些人把炒股看做是赌博。</p><p>我就不同了，我把所有投资都看成赌博。</p><p>看成赌博不对吗？太对了吧。难道投资不是赌博吗？你买入就是赌涨，你卖出就是赌跌。</p><p>看到这里，无数<span data-term-id="14" data-term-content="价值投资是一种投资流派，价值投资者会对市场价格低于内在价值的资产进行投资。沃伦·巴菲特是该流派的代表人物之一。" disabled="">价值投资</span>者要忍不住骂人了吧？别急，您再想想。</p><p>但<em>金融投资这项赌博与老虎机之类的不同点在于，它可以计算并控制概率！</em></p><p>这一点就将投资与其它类型的赌博完全区分开了！</p><p>当你认真计算过概率后，如果你认为概率低，你就可以拿着现金不买。或者，你计算十种投资品种的获胜概率，去买那些概率高的（品种）。</p><p>这是不是太棒了？你去玩老虎机，上一把和下一把赢的概率完全一样。但你做投资就不是了。同一个品种，你 1 块钱买和 100 块钱买，买这个股票和那个股票，买这个行业和那个行业……获胜的概率完全不同。</p><p>这样的赌博你不喜欢？</p><p>只要理性，只要有耐心，只要在大概率会赢的地方买，在大概率未来收益率会不好的地方卖，你就挣钱了。这样的赌博不简单？</p><p>提款机啊。</p><p>那你问我科创50买不买？</p><p>兄弟，我们来赌，不是因为赌场新上了一台老虎机，或者新来了一个漂亮的荷官，而是因为经过我们计算，这局获胜的概率大，我们才下注。</p><p>明白我的意思了吗。</p><p>我们投资，不是因为手里突然有钱了，或者别人都开始炒了，又或者多了一个可投资品种。而是因为：</p><p>那个投资品种值得投资了！</p><p class="copyright">原文发表于微博：《<a href="https://weibo.com/5687069307/JkRF9vE1u?from=page_1005055687069307_profile&amp;wvr=6&amp;mod=weibotime&amp;type=comment">我把所有的投资都看成赌博</a>》</p><h2>三、投资其实就是赌博（2016-04-15）</h2><p>投资其实就是赌博。</p><p><em>个人认为，一个好的赌徒就应该能够控制自己的情绪，知道自己什么时候该下注，什么时候该离场。 好赌徒应该会计算赢钱的概率。赢的概率大，就多加码。赢的概率小，就少量下注。</em></p><p>如果赢的概率特别小，干脆就收手不赌。</p><p>重注和重注其实也不一样。有的人，把家庭金融资产的 90% 以上都放在赌场。这些人就会比较慎重。而有的人老婆就让拿 20% 的资产来赌，本身亏了赚了也没什么大所谓，当然是比较随心所欲。</p><p>还有就是，有的人赌了十几年，在赌场里积累了巨额财富。这些人当然就谨慎。因为，一个不小心，多少年的积累就没了，锦衣玉食不复存在，没准还要跳楼，不值当的。而有的人投入资本还不到 3 年工资，输了就输了，满仓加杠杆搞起来毫无压力。</p><p>所以情况不同，选择也不同。</p><p>总体来说，投资这个赌博活动，是相对来说公平的，至少对所有二级狗来说是公平的吧。所以，根据自己情况，算好概率，压大压小搞起来，赚钱总是不难的。</p><p>赚谁的钱？当然是赚那些没日没夜、红着眼睛不停在赌场里下注的，从来不算概率的赌徒的钱啦。</p><p class="copyright">原文发表于雪球：《<a href="https://xueqiu.com/4776750571/67486142">投资其实就是赌博</a>》</p><h2>四、股市，其实是个赌场（2009-12-23）</h2><p>今年我一直在思考，股市究竟是什么？</p><p>2003 年 6 月，在售楼处签约买下第一套房子后，第二天就去股市开了户，第三天买入了第一只股票：招商银行。虽然到那时，我已经关注股市将近 2 年了，但我始终认为，没有一套房子，不能入市炒股。</p><p>入市的时候已经看过 3 本<span data-term-id="104" data-term-content="沃伦·巴菲特（Warren Buffett）是美国知名的投资人，伯克希尔·哈撒韦公司的董事长，并以长期的价值投资与简朴的生活方式闻名。你可以通过《巴菲特致股东的信》了解他对投资的思考。">巴菲特</span>和格雷厄姆的投资经典。并坚信炒股要<span data-term-id="14" data-term-content="价值投资是一种投资流派，价值投资者会对市场价格低于内在价值的资产进行投资。沃伦·巴菲特是该流派的代表人物之一。" disabled="">价值投资</span>。那时候的自己坚信——股市是经济的晴雨表，只要经济好，股市一定涨。</p><p>随着 2005 年转入相关工作，自己也经历了越来越多投资市场的腥风血雨。对股市是什么，有了越来越深刻的认识。</p><p>股市，其实是个赌场。</p><p>股票为什么会上涨和下跌？与经济基本没有关系。道理是，如果股市能够如实地反映经济，那么今天的经济状态，反映在股市上就应该是一个固定的数字。怎么解释某一日所有股票集体跌停？难道今天的经济突然差了 10% ？难道今天的经济比一年前，居然好了 100%？这不合理。</p><p>股市涨跌，与经济无关。只与两个因素有关：<em>资金与心理预期。</em></p><p>简单的说，如果当前货币环境开始由紧缩变得宽松，股市就将触底反转。当货币宽松到极致，股市将见顶开始下跌。有心的人，可以去把央行从 1993 年以来的 <span data-term-id="1" data-term-content="M1，货币供给量的计量标准之一，指的是「现金」和「活期存款」">M1</span> 增幅与股市 K 线对照一下，会发现一些有趣的事。</p><p>比资金更重要的，是人的心理预期。这个就非常奇妙了。</p><p>股市触底的时候，并没有多少人预期会上涨。就是说，很多投资者并不会抄到底。最奇妙的是接下来发生的事。</p><p>当身边的人越来越多谈论股市，并有更多的人宣称自己赚了多少钱的时候，没有投资的人就会产生一种由懊悔与嫉妒而产生的冲动。这种冲动会促使他们投入股市，并因持有股票而预期股市还会上涨。当最后一个没有投资的投资人被吸引进来，货币宽松也到了极致的时候，股市开始持续下跌。套住所有没有离场的人。</p><p>在百度搜索「储蓄搬家」，你会查到最近三次储蓄从银行搬到股市的记录。这三次是：2007 年 4 月，2007 年 8～10 月，2009 年 10 月。无一不准，三次股市顶部。</p><p>自己非常相信，在这个赌场能够赚到钱。如果自己能够发现一些窍门，总结历史，学习知识，就能够取得至少 55% 的机会来赢得赌局。</p><p>对于没有时间、没有精力、没有兴趣的三无人员，自己一直极度不建议他们炒股。2007 年，至少有三十个朋友问我怎么开户。告诉他们以后，都要他们向我保证，绝对不买股票，只买债券。他们都答应了。</p><p>当然，结果是都买了股票，没人买债券。</p><p>接下来的 2008 年，股票跌了 77%，债券涨了 30%。</p><p>如果一个人没有精力没有学习没有经验，那么他 99% 的可能就是去送钱。这不是这个人的智商不行，而是这个赌场的规矩就是如此。想要动动鼠标就赚 100% 的事情，以前没有，现在没有，将来也不会有。</p><p>这一年，我做得并不好。虽然在 2008 年一年不仅战胜指数并且还有盈利，但今年被指数战胜了。当然，自己并不是孤独者。</p><p>据央行统计，2009 年 1 月到 10 月，指数涨了 80% 多， 65% 的投资人，居然亏损了。35% 赚钱的投资人里面，有 80% 的收益在 50% 以下。就是说，赚得钱跟指数一样的投资者，有 2% 左右。</p><p>当然，基金经理表现得一如既往地差。400 多只股票基金，只有 7 只战胜了指数，比例跟市场平均值差不多。</p><p>所以在下一轮行情中，自己至少将 60% 以上的<span data-term-id="69" data-term-content="资产配置，指的是投资者根据自身投资计划的时间长度和风险承受水平，在投资组合中选择资产的类别并确定其比例的过程。当投资者面对各种各样的资产，考虑自己该拥有哪些种类的资产、每种资产各占多少比例时，资产配置的决策过程就开始了。">资产配置</span>在指数上，剩下的 40% 资产全额买进 4～5 只通过研究找到的牛股，力争不要再次被指数打败。</p><p>我每天都在跟自己说，<em>股市就是一个桥牌局。</em>当打了 2 把之后如果自己还不能发现谁是这个牌局中的傻瓜，那我自己就是这个傻瓜！赶紧离场吧。</p><p>当没有能力再用思考和知识理解市场的时候，我会向它说再见。</p><p class="copyright">原文发表于网易博客</p><p class="copyright">本文章所载信息仅供参考，不构成任何投资建议。如转载使用，请参考 <a href="https://youzhiyouxing.cn/agreements/ARTICLE_REPRINTED">《文章转载声明》</a>。</p></body></html>
+    
+
+    
+  </div>
+</div>
+
+
+
+  <a name="opinions"></a>
+
+  <section class="tw-select-none tw-px-5 tw-mt-3">
+    <div class="tw-pt-8 tw-border-t tw-border-sep/50 %>">
+      <h2 class="tw-mb-4 tw-text-22 tw-leading-normal tw-font-medium tw-text-justify">想法</h2>
+
+        <a class="btn btn-md btn-outline tw-mb-4" href="/materials/659/new_opinion" data-event-category="material" data-event-label="new_opinion">
+          发布想法
+        </a>
+
+
+        <ul class="tw-flex tw-border-b tw-border-sep/50 tw-mb-12">
+          <li class="
+            tw-px-4 tw-py-2
+            tw-border-b-2 tw-border-primary
+          ">
+            <a href="/materials/659?opinion_sort=hot#opinions" class="tw-text-t-normal">
+              默认
+            </a>
+          </li>
+          <li class="
+            tw-px-4 tw-py-2
+            
+          ">
+            <a href="/materials/659?opinion_sort=new#opinions" class="tw-text-t-normal">
+              最新
+            </a>
+          </li>
+        </ul>
+        <ul class="tw-space-y-10">
+          <li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/avatars/default_avatar_26.png?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+皮下小杜
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>本篇第一条是16年的，第二条是20年的，但同属同一类耶。参与编辑的有知有行er辛苦了~</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>388</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2020/12/29/01ETQ16H8GX8Q29VXV3CJ56CES.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+littleHHH
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>E1投资是一场赌博
+1.低买高卖，逐步下注，计算胜率，不要妄想梭哈在最低点，逃跑在最高点，吃掉鱼身就擦擦嘴巴。
+2.我们下注，是因为值得买，而不是因为发了年终奖、大妈们买赚翻了、或者出现了新产品。
+3.好的赌徒，除了知道何时下注，还应该知道何时离场，背后的核心能力是能控制自己情绪，并且赚的就是那些疯狂赌徒背后的情绪的钱！
+4.股市涨跌两要素：资金和预期。学习、思考、理解投资，才有可能规避追涨杀跌，取得超额收益，否则还不如无脑定投致富，当然，学习了思考了理解了也不一定比无脑定投效果好，只是能避免在水里乱扑腾，沉得更深罢了。</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>306</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2021/01/01/01ETWSRVHYXYBXVQC7BYRK1VZC.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+逆水行舟
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>E大系列的开篇其实是四篇文章，前后横跨四年多，但其中心思想却是一贯的。这一方面要感谢编辑小伙伴的细心整理，另一方面也说明E大的投资思想是延续的，投资风格是稳定不漂移的。
+
+跟着这样的投资人，心里踏实。</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>305</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2021/04/10/01F2XG3QE3Q6MB691PST6X3QEZ.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+透明气球
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>这样的整理很有心，更有逻辑和连贯性，更具思考价值，万分感谢知行的基础整理工作。</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>75</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2020/08/11/01EFCJ0PCNBHRC2R9C227ZRJA2.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+沐珈蓝
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>哇居然是同主题跨时间线的整理！辛苦有知有行啦～😊可以根据时间线体会E大的感悟，好棒～</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>69</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2020/10/30/01ENVN8MAFTZ9GR15JE3HEMKPW.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+不烦
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>还是有知有行厉害，我也一度分门别类手抄整理过E大的笔记，但还是有些凌乱。感谢有知有行，也谢谢E大，E大的文字，真是常看常新</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>42</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2020/08/01/01EEMQ25M7NVKMZS7HPPPJB1FE.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+周星星star
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>E01 投资是一场赌博
+所有的投资，就是一场赌博，不过这是一场可以通过努力获得大概率胜算的赌博。
+
+投资（这场赌博游戏）参与前提：
+①认识投资与赌博
+②拥有学习力、有时间、有精力、有兴趣研究；懂得计算胜率，分配资源
+③认识你自己 知道什么时候入离场，赢的概率大，就多加码。赢的概率小，就少量下注。
+
+投资思维:
+第一，做大概率会胜利的投资；
+第二，在错误的时候，尽量将损失最小化；
+第三，在正确的时候，尽量将利润最大化。
+
+股市涨跌，与经济无关。只与两个因素有关：资金与心理预期。（以史为鉴）</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月12日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>29</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2021/04/09/01F2VAA9DXHRTZWP943KJEAS4Y.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+滚雪球的人
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>在这个赌场里，赚基本面的钱（货币），赚情绪的钱（牛市），更重要的应该是赚估值的钱（成长）</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>25</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2021/01/30/01EX9RAYPGBNJ4PPC6T1K6TFWB.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+说好一起到白头
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>很喜欢这种把逻辑主体表达相同的放在一起整理，自己曾经尝试过，但无奈E大的经典太多，自己没办法一一的去甄别，今日竟然在这里看到了，超级兴奋</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>22</span>
+      </div>
+    </div>
+  </div>
+</li><li>
+  <div class="tw-flex tw-justify-between tw-items-center tw-mb-2">
+    <div class="tw-flex tw-items-center">
+      <img class="tw-w-6 tw-h-6 tw-rounded-full tw-mr-3" src="https://avatar.youzhiyouxing.cn/user/2020/08/08/01EF5YDQ82VK3YM0QWZBP608VE.jpg?x-oss-process=image/resize,w_78,limit_1/format,jpg">
+      <span class="tw-text-t-light tw-text-14 tw-leading-normal">
+ETF小白
+      </span>
+      
+    </div>
+    
+    
+  </div>
+
+  <div class="tw-pl-9">
+    <p>谢谢孟岩团队，也算圆了我的一个梦，以前也想把E大的文章全部整理一下，可惜都不了了之，感谢</p>
+    <div class="
+      tw-mt-4
+      tw-flex tw-justify-between tw-items-center
+      tw-text-12 tw-text-leading-normal tw-text-t-muted
+    ">
+2021年4月9日
+      <div class="tw-flex tw-items-center">
+<svg class="tw-w-4 tw-h-4 tw-mr-1 tw-mb-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.11653 13.9985V6.15362M5.11653 13.9985V14H11.2604C12.0952 14 12.8356 13.4458 13.0519 12.6441L14.4413 7.62213C14.7185 6.6367 13.9782 5.68091 12.959 5.68091H10.1483V3.44776C10.1483 2.64757 9.49936 2 8.69653 2C7.9851 2 7.36812 2.46234 7.24472 3.13954C6.94918 4.73104 6.14787 5.7876 5.11653 6.15362M5.11653 13.9985H2.73544C2.05601 13.9985 1.49996 13.4443 1.49996 12.7656V7.55989C1.49996 6.88269 2.05601 6.29736 2.73544 6.29736L5.11653 6.15362" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+        <span>14</span>
+      </div>
+    </div>
+  </div>
+</li>
+        </ul>
+        <div class="tw-flex tw-justify-center tw-mt-12 miniprogram:tw-hidden">
+          <a href="/download" , method="get" class="btn btn-md btn-outline">下载 App 查看全部想法</a>
+        </div>
+
+    </div>
+  </section>
+</div>
+
+<div id="zx-material-marker-menu" class="tw-select-none">
+  <div class="zx-actions">
+    <div id="zx-mark" class="zx-action">划线</div>
+    <div id="zx-unmark" class="zx-action">取消划线</div>
+    <div id="zx-share" class="zx-action tw-hidden app:tw-block">分享</div>
+    <div id="zx-copy" class="zx-action">复制</div>
+  </div>
+  <div class="info-container">
+    <p id="zx-hot-marks"></p>
+  </div>
+</div>
+
+<div class="tw-fixed tw-left-0 tw-bottom-0 tw-w-full">
+
+    
+
+</div>
+    </div>
+
+    
+
+    <div id="dialog" phx-update="ignore" x-cloak x-data x-show="$store.dialog.open" x-on:dialog:show.window="$store.dialog.handleCustomEvent($event)" role="dialog" aria-modal="true" aria-labelledby="dialog-title" class="tw-fixed tw-inset-0 tw-z-40 tw-select-none">
+  <div x-show="$store.dialog.open" x-transition.opacity.duration.250ms class="tw-fixed tw-inset-0 tw-bg-black/60">
+  </div>
+
+  <div x-show="$store.dialog.open" x-transition.duration.250ms x-on:click="$store.dialog.hide()" class="tw-relative tw-h-full tw-w-full tw-flex tw-justify-center tw-items-center">
+    <div x-on:click.stop x-trap.noscroll.inert="$store.dialog.open" class="
+        tw-bg-bgd-card tw-w-[80%] tw-max-h-[65vh] tw-max-w-xl
+        tw-rounded-lg tw-overflow-hidden
+      ">
+      <div class="tw-pt-6 tw-pb-4 tw-px-5 tw-border-b tw-border-solid tw-border-sep/50 tw-max-h-[calc(65vh-50px)] tw-overflow-y-auto">
+        <h2 id="dialog-title" class="tw-mb-4 tw-font-medium tw-text-18 tw-leading-snug tw-text-center tw-text-t-normal" x-text="$store.dialog.title">
+        </h2>
+        <p class="tw-text-14 tw-leading-normal tw-text-t-light" x-text="$store.dialog.description">
+        </p>
+        <div x-show="$store.dialog.content !== undefined" x-html="$store.dialog.content"></div>
+      </div>
+      <div class="tw-flex">
+        <template x-if="$store.dialog.isCancelButtonEnabled">
+          <button class="
+              tw-flex-1 tw-py-3.5 tw-text-t-medium
+              tw-appearance-none tw-outline-none
+              tw-text-16 tw-font-medium tw-leading-tight
+              tw-border-r tw-border-solid tw-border-sep/50
+            " x-text="$store.dialog.cancelButtonText" x-on:click="$store.dialog.handleCancelButton()">
+          </button>
+        </template>
+        <button class="
+            tw-flex-1 tw-py-3.5 tw-text-primary
+            tw-appearance-none tw-outline-none
+            tw-text-16 tw-font-medium tw-leading-tight
+            tw-border-0
+          " x-text="$store.dialog.mainButtonText" x-on:click="$store.dialog.handleMainButton()">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div id="modal" phx-update="ignore" x-cloak x-data x-show="$store.modal.open" x-on:modal:show.window="$store.modal.handleCustomEvent($event)" role="modal" aria-modal="true" aria-labelledby="modal-title" class="tw-fixed tw-inset-0 tw-z-40 tw-select-none">
+  <div x-show="$store.modal.open" x-transition.opacity.duration.250ms class="tw-fixed tw-inset-0 tw-bg-black/60">
+  </div>
+
+  <div x-show="$store.modal.open" x-transition.duration.250ms x-on:click="$store.modal.hide()" class="tw-relative tw-h-full tw-w-full tw-flex tw-justify-center tw-items-center">
+    <div x-on:click.stop x-trap.noscroll.inert="$store.modal.open" class="
+        tw-bg-bgd-card tw-overflow-y-auto tw-w-[280px]
+        tw-rounded-lg tw-overflow-hidden
+      ">
+      <img src="https://cdn.youzhiyouxing.cn/static/images/download_bg-8e24c747e5e0573c75d1d93bdf17dfee.svg?vsn=d">
+
+      <div class="tw-pt-6 tw-pb-4 tw-px-5">
+        <h2 id="modal-title" class="
+            tw-mb-4
+            tw-font-medium tw-text-18 tw-leading-snug tw-text-center tw-text-t-normal
+          " x-text="$store.modal.title">
+        </h2>
+        <p class="tw-text-14 tw-leading-normal tw-text-t-light" x-text="$store.modal.description">
+        </p>
+
+        <div class="tw-mt-6 tw-flex tw-flex-col tw-justify-center tw-items-center tw-space-y-3">
+          <a class="
+              tw-flex-1 tw-px-20 tw-py-2.5 tw-bg-primary tw-text-white
+              tw-appearance-none tw-outline-none
+              tw-text-14 tw-font-medium tw-leading-tight
+              tw-border-0 tw-rounded-full
+            " x-text="$store.modal.mainButtonText" href="/download">
+          </a>
+          <template x-if="$store.modal.isCancelButtonEnabled">
+            <button class="
+                tw-flex-1 tw-px-20 tw-py-2.5 tw-bg-transparent tw-text-t-muted
+                tw-appearance-none tw-outline-none
+                tw-text-14 tw-font-medium tw-leading-tight
+                tw-border-0 tw-rounded-full
+              " x-text="$store.modal.cancelButtonText" x-on:click="$store.modal.handleCancelButton()">
+            </button>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
