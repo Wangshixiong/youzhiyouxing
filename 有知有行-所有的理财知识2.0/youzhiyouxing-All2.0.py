@@ -17,6 +17,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # 【v7.1 升级】
 # 在 "投资知识体系" 中补全所有 5 个页签
+
 COLLECTIONS = [
     {
         "collection_name": "E大干货合集",
